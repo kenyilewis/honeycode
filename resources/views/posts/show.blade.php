@@ -1,6 +1,6 @@
 @extends('master')
 @section('content')
-  <div class="container">
+  <div class="container container-body">
     <div class="card">
       <div class="card-header">
         {{$post->title}}

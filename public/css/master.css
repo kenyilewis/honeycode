@@ -13,6 +13,11 @@
 
 body{
   background-image: url("images/fondo.jpg");
+
+}
+.container-body{
+  padding: 80px;
+  min-height: 800px;
 }
 .title-banner{
   text-shadow: 0 0 5px #000;
