@@ -22,3 +22,10 @@ Route::post('/post', 'PostsController@store');
 Route::get('/post/{post}', 'PostsController@show');
 
 Route::resource('/admin/posts', 'Admin\PostController');
+
+Route::get('/register', 'RegisterController@create');
+Route::post('register', 'RegisterController@store');
+
+Route::get('login', 'LoginController@getLogin');
+Route::post('login', 'LoginController@postLogin');
+Route::get('logout', 'LoginController@logout');
