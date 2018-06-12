@@ -1,0 +1,45 @@
+.navhead,
+.footer-main{
+    background: linear-gradient(to left, #fe7c2e,#fdae28, #fe7c2e) !important;
+}
+
+.navhead{
+  position: relative;
+}
+
+.navbar-nav li a{
+  color: #fff !important;
+}
+
+body{
+  background-image: url("images/fondo.jpg");
+}
+.title-banner{
+  text-shadow: 0 0 5px #000;
+}
+.social{
+  font-size: 2em;
+}
+.log-footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.register-form{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.form-control:focus {
+  box-shadow: 0 0 5px rgba(0,255,0,1);
+  border:1px solid rgba(0,255,0,0.8);
+}
+.out{
+  display: none;
+}
+.error{
+  color: red;
+}
+
+.btn-git{
+  background-color: #000;
+}
