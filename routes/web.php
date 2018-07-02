@@ -28,8 +28,8 @@ Route::post('register', 'RegisterController@store');
 
 Route::get('login', 'LoginController@getLogin');
 Route::post('login', 'LoginController@postLogin');
-Route::get('logout', 'LoginController@logout');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::post('/post/{post}/comments', 'CommentsController@store');

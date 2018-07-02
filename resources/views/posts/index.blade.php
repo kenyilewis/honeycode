@@ -2,7 +2,7 @@
 
 @section('content')
   <div class="container">
-    <h1>Mostrat Post</h1>
+    <h1>Mostrar Posts</h1>
     <hr>
     @each('posts._card', $posts, 'post')
 
