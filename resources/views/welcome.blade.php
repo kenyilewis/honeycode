@@ -8,7 +8,7 @@
         <div class="carousel-item active" style="background-image: url('/images/programadores.jpg')">
           <div class="carousel-caption d-none d-md-block">
             <?php if (!isset($_SESSION["login"])): ?>
-              <a class="btn btn-lg btn-secondary  btn-success" href="register.php">REGISTRATE</a>
+              <a class="btn btn-lg btn-secondary  btn-success" href="/register">REGISTRATE</a>
             <?php endif; ?>
 
             <h1 class="title-banner">Connecting people</h1>
@@ -122,7 +122,7 @@
               <p>REGISTRATE E INGRESA A ESTE NUEVO MUNDO. UNA HERRAMIENTA PARA TUS PROYECTOS.</p>
             </div>
             <div class="col-md-4">
-          <a class="btn btn-lg btn-secondary btn-block btn-success" href="register.php">REGISTRATE</a>
+          <a class="btn btn-lg btn-secondary btn-block btn-success" href="/register">REGISTRATE</a>
         </div>
       </div>
         <?php endif; ?>
