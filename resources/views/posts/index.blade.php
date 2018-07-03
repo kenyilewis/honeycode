@@ -4,6 +4,10 @@
   <div class="container">
     <h1>Mostrar Posts</h1>
     <hr>
+    <div class="crear-post">
+      <a href="/post/create" class="btn btn-success">Crear Nuevo Post</a>
+    </div>
+
     @each('posts._card', $posts, 'post')
 
     {{ $posts->links() }}

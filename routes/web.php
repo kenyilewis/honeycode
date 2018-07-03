@@ -29,7 +29,7 @@ Route::post('register', 'RegisterController@store');
 Route::get('/login', 'LoginController@getLogin');
 Route::post('/login', 'LoginController@postLogin');
 
-Route::get('/logout', 'auth\LoginController@logout');
+Route::get('/logout', 'Auth\LoginController@logout');
 Auth::routes();
 
 

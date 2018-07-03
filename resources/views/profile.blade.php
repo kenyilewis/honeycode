@@ -8,24 +8,38 @@
                   <img src="images/default.jpg" class="rounded-circle img-responsive" width="250px" height="250px" />
                   <br />
                   <br />
-                  <label>Registered Username</label>
-                  <input type="text" class="form-control" placeholder=" {{$user->user}}" disabled>
+                  @if ($usuario->id == auth()->user()->id)
+                  <form class="" action="index.html" method="post">
+                  <label>Registered user</label>
+                  <input id="user" type="text" class="form-control" placeholder="{{$usuario->user}} " disabled>
                   <label>Registered Name</label>
-                  <input type="text" class="form-control" placeholder="{{$user->name}}" disabled>
+                  <input id="name" type="text" class="form-control" placeholder="{{$usuario->name}}" disabled>
                   <label>Registered Email</label>
-                  <input type="text" class="form-control" placeholder="{{$user->email}}" disabled>
+                  <input type="text" class="form-control" placeholder="{{$usuario->email}}" disabled>
                   <br>
-                  <a href="#" class="btn btn-success">Actualizar datos</a>
+                  <button type="submit" id="act" class="btn btn-danger" style="display:none">Actualizar</button>
+                  <a class="btn btn-success" id="actualizar">Actualizar datos</a>
                   <br /><br/>
+                  </form>
+                  @else
+                    <ul>
+                      <li>{{$usuario->user}}</li>
+                      <li>{{$usuario->name}}</li>
+                      <li>{{$usuario->email}}</li>
+                    </ul>
+                @endif
               </div>
               <div class="col-md-8">
-                  <div class="alert alert-info">
-                      <h2>Biografia : </h2>
-                      <h4>Hola {{$user->name}} </h4>
-                      <p>
-                          Bienvenido a HONEYCODE. Por favor termina de completar tu perfil asi podes empezar a compartir tus conocimientos con los demas.
-                      </p>
-                  </div>
+                  @if ($usuario->id == auth()->user()->id)
+                    <div class="alert alert-info">
+                        <h2>Biografia : </h2>
+                        <h4>Hola {{$usuario->name}}</h4>
+                        <p>
+                            Bienvenido a HONEYCODE. Por favor termina de completar tu perfil asi podes empezar a compartir tus conocimientos con los demas.
+                        </p>
+                    </div>
+                  @endif
+
                   <div >
                       <a href="#" class="btn btn-social btn-facebook">
                           <i class="fab fa-facebook-f"></i>&nbsp; Facebook</a>
@@ -40,7 +54,7 @@
                       <h3>Informacion Adicional</h3>
                       <br />
                       <form class="form-group" action="controllers/update.controller.php" method="post" enctype="multipart/form-data">
-                        <input type="text" name="id" value="{{$user->id}} ?>" hidden>
+                        <input type="text" name="id" value=" ?>" hidden>
 
                       <label>Cargar Imagen de Perfil</label>
                       <input type="file" class="form-control">
@@ -56,28 +70,28 @@
                         <div class="input-group-prepend">
                           <div class="input-group-text">  <i class="fab fa-facebook-f"></i>&nbsp;</div>
                         </div>
-                        <input type="text" class="form-control" name="facebook" id="inlineFormInputGroupUsername" value="https://www.facebook.com/">
+                        <input type="text" class="form-control" name="facebook" id="inlineFormInputGroupusuarioname" value="https://www.facebook.com/">
                       </div>
                       <label>Perfil Google +</label>
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <div class="input-group-text">  <i class="fab fa-google-plus-g"></i>&nbsp;</div>
                         </div>
-                        <input type="text" class="form-control"  name="google" id="inlineFormInputGroupUsername" value="https://www.google.com/">
+                        <input type="text" class="form-control"  name="google" id="inlineFormInputGroupusuarioname" value="https://www.google.com/">
                       </div>
                       <label>Perfil Twitter</label>
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <div class="input-group-text"><i class="fab fa-twitter"></i>&nbsp;</div>
                         </div>
-                        <input type="text" class="form-control" name="twitter" id="inlineFormInputGroupUsername" value="https://twitter.com/">
+                        <input type="text" class="form-control" name="twitter" id="inlineFormInputGroupusuarioname" value="https://twitter.com/">
                       </div>
                       <label>Perfil GitHub</label>
                       <div class="input-group">
                         <div class="input-group-prepend">
                           <div class="input-group-text">  <i class="fab fa-github"></i>&nbsp;</div>
                         </div>
-                        <input type="text" class="form-control" name="git" id="inlineFormInputGroupUsername" value="https://github.com/">
+                        <input type="text" class="form-control" name="git" id="inlineFormInputGroupusuarioname" value="https://github.com/">
                       </div>
                       <br>
                      <button type="submit" class="btn btn-warning" name="button">Actualizar Informacion</button>
@@ -95,7 +109,11 @@
 
   <!-- REQUIRED SCRIPTS FILES -->
   <!-- CORE JQUERY FILE -->
-  <script src="assets/js/jquery-1.11.1.js"></script>
+  <script src="/js/jquery-1.11.1.js"></script>
   <!-- REQUIRED BOOTSTRAP SCRIPTS -->
-  <script src="assets/js/bootstrap.js"></script>
+  <script src="/js/bootstrap.js"></script>
+
+@endsection
+@section('meta')
+  <script src="/js/profile.js"></script>
 @endsection

@@ -10,40 +10,23 @@
         <div class="form-group">
           <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" placeholder="{{ __('Name') }}" required autofocus>
 
-          @if ($errors->has('name'))
-              <span class="invalid-feedback">
-                  <strong>{{ $errors->first('name') }}</strong>
-              </span>
-          @endif
+
         </div>
         <div class="form-group">
-          <input type="text" class="form-control{{ $errors->has('user') ? ' is-invalid' : '' }}" name="user" placeholder="Usuario">
-          @if ($errors->has('user'))
-              <span class="invalid-feedback">
-                  <strong>{{ $errors->first('user') }}</strong>
-              </span>
-          @endif
+          <input type="text" class="form-control{{ $errors->has('user') ? ' is-invalid' : '' }}" name="user" value="{{ old('user') }}" placeholder="{{ __('User') }}">
+
         </div>
         <div class="form-group">
           <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="{{ __('E-Mail Address') }}" required>
 
-          @if ($errors->has('email'))
-              <span class="invalid-feedback">
-                  <strong>{{ $errors->first('email') }}</strong>
-              </span>
-          @endif
+
         </div>
         <div class="form-group">
           <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ __('Password') }}" required>
 
-          @if ($errors->has('password'))
-              <span class="invalid-feedback">
-                  <strong>{{ $errors->first('password') }}</strong>
-              </span>
-          @endif
         </div>
         <div class="form-group">
-          <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="{{ __('Confirm Password') }}" required>
+          <input id="password-confirm" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password_confirmation" placeholder="{{ __('Confirm Password') }}" required>
         </div>
         <button type="submit" class="btn btn-primary">
             {{ __('Register') }}

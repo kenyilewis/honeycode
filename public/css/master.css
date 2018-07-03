@@ -7,7 +7,7 @@
   position: relative;
 }
 
-.navbar-nav li a{
+.navbar-nav li .nav-link{
   color: #fff !important;
 }
 
@@ -50,4 +50,10 @@ body{
 }
 .user_name{
   font-size: 15px;
+}
+.crear-post{
+  margin-bottom: 20px;
+}
+.dropdown-item{
+  color: #000 !important;
 }

@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/profile">PROFILE</a>
+          <a class="nav-link" href="/user/{{auth()->user()->user}}">PROFILE</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/post">POSTS</a>
@@ -15,8 +15,13 @@
         <li class="nav-item">
           <a class="nav-link" href="/faq">FAQ</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/logout">LOGOUT</a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{auth()->user()->user}}</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="/mensajes">MENSAJES</a>
+            <a class="dropdown-item" href="/logout">LOGOUT</a>
+            <a class="dropdown-item" href="#">ALGO MAS</a>
+          </div>
         </li>
       </ul>
     </div>
