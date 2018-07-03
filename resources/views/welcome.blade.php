@@ -7,9 +7,11 @@
         <!-- Slide One - Set the background image for this slide in the line below -->
         <div class="carousel-item active" style="background-image: url('/images/programadores.jpg')">
           <div class="carousel-caption d-none d-md-block">
-            <?php if (!isset($_SESSION["login"])): ?>
+            @if (!Auth::check())
               <a class="btn btn-lg btn-secondary  btn-success" href="/register">REGISTRATE</a>
-            <?php endif; ?>
+
+            @endif
+
 
             <h1 class="title-banner">Connecting people</h1>
             <h3 class="title-banner">Everywhere.</h3>
@@ -116,7 +118,9 @@
 
     <!-- Call to Action Section -->
 
-        <?php if (!isset($_SESSION["login"])): ?>
+        @if (!Auth::check())
+
+
           <div class="row mb-4">
             <div class="col-md-8">
               <p>REGISTRATE E INGRESA A ESTE NUEVO MUNDO. UNA HERRAMIENTA PARA TUS PROYECTOS.</p>
@@ -125,7 +129,7 @@
           <a class="btn btn-lg btn-secondary btn-block btn-success" href="/register">REGISTRATE</a>
         </div>
       </div>
-        <?php endif; ?>
+      @endif
 
 
 

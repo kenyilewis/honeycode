@@ -26,10 +26,17 @@ Route::resource('/admin/posts', 'Admin\PostController');
 Route::get('/register', 'RegisterController@create');
 Route::post('register', 'RegisterController@store');
 
-Route::get('login', 'LoginController@getLogin');
-Route::post('login', 'LoginController@postLogin');
+Route::get('/login', 'LoginController@getLogin');
+Route::post('/login', 'LoginController@postLogin');
 
+Route::get('/logout', 'auth\LoginController@logout');
 Auth::routes();
+
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::post('/post/{post}/comments', 'CommentsController@store');
+Route::get('/faq', function(){
+  return view('/faq');
+});
+
+Route::get('/user/{user}', 'UserController@show');

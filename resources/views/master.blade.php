@@ -17,8 +17,12 @@
   </head>
 
   <body >
+    @if (Auth::check())
+      @include('layouts.navcheck')
+    @else
+      @include('layouts.nav')
+    @endif
 
-    @include('layouts.nav')
 
     @yield('content')
 
