@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="login">LOG IN</a>
+          <a class="nav-link" href="/login">LOG IN</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="register">REGISTER</a>
+          <a class="nav-link" href="/register">REGISTER</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="faq">FAQ</a>
