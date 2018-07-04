@@ -7,8 +7,18 @@
     <div class="crear-post">
       <a href="/post/create" class="btn btn-success">Crear Nuevo Post</a>
     </div>
-
+    <table class="tabla-post">
+  <thead>
+    <tr class="tr-post">
+      <th class="th-post fila1">Titulo</th>
+      <th class="th-post">Fecha de creacion</th>
+      <th class="th-post">Usuario</th>
+    </tr>
+  </thead>
+  <tbody>
     @each('posts._card', $posts, 'post')
+  </tbody>
+</table>
 
     {{ $posts->links() }}
     {{--<table class="table">

@@ -23,3 +23,10 @@
 
 
 @endsection
+@section('meta')
+  <script src="{{asset('vendor/ckeditor/ckeditor.js')}}" charset="utf-8"></script>
+
+  <script type="text/javascript">
+    CKEDITOR.replace('body');
+  </script>
+@endsection
