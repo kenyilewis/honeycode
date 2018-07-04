@@ -7,7 +7,8 @@
       </div>
       <div class="card-body">
         <blockquote class="blockquote mb-0">
-            <?php echo (html_entity_decode($post->body)) ?>
+
+            {!! html_entity_decode($post->body) !!}
 
 
           <footer class="blockquote-footer">{{$post->created_at}}</footer>

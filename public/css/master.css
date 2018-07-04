@@ -145,3 +145,7 @@ body{
 .tr-post:last-of-type td:last-child {
 	box-shadow: inset -1px -1px 0 #fff;
 }
+.profiledata{
+  border: none;
+  background-color: #fff !important
+}

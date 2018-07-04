@@ -62,7 +62,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $usuario = User::find($id);
+        return view('/profile/actualizar', compact('usuario'));
     }
 
     /**

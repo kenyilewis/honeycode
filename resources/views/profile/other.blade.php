@@ -3,7 +3,7 @@
       <section style="padding-bottom: 50px; padding-top: 50px;">
           <div class="row">
               <div class="col-md-4">
-                  <img src="images/default.jpg" class="rounded-circle img-responsive" width="250px" height="250px" />
+                  <img src="/images/avatars/{{$usuario->avatar}}" class="rounded-circle img-responsive" width="250px" height="250px" />
                   <br />
                   <br />
                     <ul>
@@ -38,13 +38,15 @@
                           </tr>
                         </thead>
                         <tbody>
-                          @foreach ($posts as $post)
+                          @forelse ($posts as $post)
                             <tr>
                               <th scope="row"><a href="/post/{{$post->id}}">{{$post->title}}</a></th>
                               <td>{{$post->created_at}}</td>
                               <td>{{$post->updated_at}}</td>
                             </tr>
-                          @endforeach
+                          @empty
+                            <th>El usuario no tiene posteos</th>
+                          @endforelse
                         </tbody>
                       </table>
                   </div>
@@ -60,13 +62,17 @@
                         </tr>
                       </thead>
                       <tbody>
-                        @foreach ($comentarios as $comentario)
+                        @forelse ($comentarios as $comentario)
                           <tr>
                             <th scope="row">{{$comentario->created_at}}</th>
                             <td><a href="/post/{{$comentario->post->id}}"> {{$comentario->post->title}}</a></td>
                             <td>{{$comentario->body}}</td>
                           </tr>
-                        @endforeach
+                        @empty
+                          <tr>
+                            No hay comentarios de {{$usuario->usuer}}
+                          </tr>
+                        @endforelse
                       </tbody>
                     </table>
               </div>

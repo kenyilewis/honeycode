@@ -40,3 +40,5 @@ Route::get('/faq', function(){
 });
 
 Route::get('/user/{user}', 'UserController@show');
+Route::get('/profile/actualizar/{id}', 'Usercontroller@edit');
+Route::post('/profile/actualizar/{id}', 'UserController@update');
