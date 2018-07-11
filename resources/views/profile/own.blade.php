@@ -19,14 +19,20 @@
                   </form>
               </div>
               <div class="col-md-8">
-                <div class="alert alert-info">
-                    <h2>Biografia : </h2>
-                    <h4>Hola {{$usuario->name}}</h4>
-                    <p>
-                        Bienvenido a HONEYCODE. Por favor termina de completar tu perfil asi podes empezar a compartir tus conocimientos con los demas.
-                    </p>
-                </div>
-                <br>
+                @if ($usuario->avatar == 'default.jpg')
+                  <div class="alert alert-info">
+                      <h2>Biografia : </h2>
+                      <h4>Hola {{$usuario->name}}</h4>
+                      <p>
+                          Bienvenido a HONEYCODE. Por favor termina de completar tu perfil asi podes empezar a compartir tus conocimientos con los demas.
+                      </p>
+                  </div>
+                  <br>
+                @endif
+                  <div class="row form-group col-12">
+                    <a href="/mensajes" class="btn btn-danger botonperfil">Mis Mensajes</a>
+                    <a href="/amigos" class="btn btn-success botonperfil">Amigos</a>
+                  </div>
                   <div class="row form-group col-12">
                       <h3>Mis Posteos</h3>
                       <br />
@@ -75,6 +81,28 @@
 
                         @endforelse
                       </tbody>
+                    </table>
+                      <hr>
+                      <h2>Mis Amistades</h2>
+
+                    <table class="table table-sm">
+                    <thead>
+                      <tr>
+                        <th scope="col">Amigo</th>
+                        <th scope="col">Accion</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @forelse ($amigos as $amigo)
+                        <tr>
+                          <td><a href="/user/{{$amigo->user}}">{{$amigo->user}}</a></td>
+                          <td><a href="{{ route('remove_friend', ['id' => $amigo->id]) }}" class="btn"><i class="fas fa-trash-alt"></i></a><a href="/mensaje/nuevo/{{$amigo->user}}" class="btn"><i class="far fa-envelope"></i></a></td>
+                        </tr>
+                        @empty
+                        <th>No tienes amigos</th>
+
+                      @endforelse
+                    </tbody>
                     </table>
               </div>
           </div>

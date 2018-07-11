@@ -13,7 +13,8 @@
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="/css/modern-business.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/master.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/jsquery-3.3.1.min.js" charset="utf-8"></script>
+
 
 
   </head>
@@ -24,16 +25,10 @@
     @else
       @include('layouts.nav')
     @endif
-
-
     @yield('content')
-
-
-
-
     @include('layouts.footer')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      @yield('meta')
+
+    @yield('meta')
   </body>
 
 </html>

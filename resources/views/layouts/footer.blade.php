@@ -1,5 +1,5 @@
-<footer class="py-5 footer-main">
-  <div class="container">
+<footer class="py-5 footer-main container-fluid">
+  <div class="">
     <p class="m-0 text-center text-white">Copyright HoneyCode</p>
   </div>
   <p class="text-center"> <a href="http://facebook.com" class="text-white" target="_blank" ><i class="fab fa-facebook-square social" ></i></a>
@@ -8,6 +8,6 @@
 </footer>
 
 <!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </div>

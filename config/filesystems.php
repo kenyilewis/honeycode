@@ -45,7 +45,7 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app/public/images/avatars'),
+            'root' => public_path('images/avatars'),
         ],
 
         'public' => [

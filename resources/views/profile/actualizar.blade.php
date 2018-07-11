@@ -1,16 +1,30 @@
 @extends('master')
+@if (auth()->user()->id == $usuario->id)
 @section('content')
   <div class="col-md-8">
+
 
   <div class="form-group col-md-8">
     <h3>Informacion Adicional</h3>
     <br />
-    <form class="form-group" action="controllers/update.controller.php" method="post" enctype="multipart/form-data">
+    <form class="form-group" action="/profile/actualizar/{{{$usuario->id}}}" method="post" enctype="multipart/form-data">
     <input type="text" name="id" value=" ?>" hidden>
     @csrf
+    <div class="">
+      <label for="name">Nombre</label>
+      <input class="form-control" type="text" name="name" value="{{$usuario->name}}" ><br>
+    </div>
+    <div class="">
+      <label for="user">Usuario</label>
+      <input class="form-control"type="text" name="user" value="{{$usuario->user}}" disabled><br>
+    </div>
+    <div class="">
+      <label for="email">Email</label>
+      <input class="form-control"type="text" name="email" value="{{$usuario->email}}" disabled><br>
+    </div>
 
     <label>Cargar Imagen de Perfil</label>
-    <input type="file" class="form-control">
+    <input type="file" class="form-control" name="file">
     <label>Conocimientos</label><br>
     <input type="checkbox" name="vehicle" value="php"> PHP
     <input type="checkbox" name="vehicle" value="html"> HTML<br>
@@ -46,5 +60,9 @@
   </div>
   </div>
   <!-- ROW END -->
-
 @endsection
+@else
+@section('content')
+<p>ESTE LUGAR NO TE PERTENECE!!</p>
+@endsection
+@endif

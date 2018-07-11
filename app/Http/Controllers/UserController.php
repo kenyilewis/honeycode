@@ -51,7 +51,8 @@ class UserController extends Controller
       $usuario = User::where('user', $user)->get()->first();
       $posts = Post::where('user_id', $usuario->id)->get();
       $comentarios = Comment::where('user_id', $usuario->id)->get();
-      return view('profile', compact('usuario', 'posts', 'comentarios'));
+      $amigos = $usuario->getFriends();
+      return view('profile', compact('usuario', 'posts', 'comentarios', 'amigos'));
     }
 
     /**
@@ -62,6 +63,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+
         $usuario = User::find($id);
         return view('/profile/actualizar', compact('usuario'));
     }
@@ -75,7 +77,18 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $user = User::find($id);
+      $user->name = request('name');
+      $user->facebook = request('facebook');
+      $user->linkedin = request('linkedin');
+      $file = $request->file('file');
+      $ext =  $file->getClientOriginalExtension();
+      $nombre = uniqid()."_".$user->id .".". $ext;
+      \Storage::disk('local')->put($nombre,  \File::get($file));
+      $user->avatar = $nombre;
+      $user->save();
+
+      return back();
     }
 
     /**

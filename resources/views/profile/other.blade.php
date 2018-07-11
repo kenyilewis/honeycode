@@ -22,8 +22,8 @@
               </div>
               <div class="col-md-8">
                 <div class="row">
-                  <a href="#" class="btn btn-primary">Enviar mensaje</a>
-                  <a href="#" class="btn btn-warning">Agregar a mi equipo</a>
+                  <a href="/mensaje/nuevo/{{$usuario->user}}" class="btn btn-primary">Enviar mensaje</a>
+                  <a href=""{{ route('be_friend', ['id' => $usuario->id]) }}"" class="btn btn-warning">Agregar a mis amigos</a>
                 </div>
                 <br>
                   <div class="row form-group col-12">
@@ -69,9 +69,9 @@
                             <td>{{$comentario->body}}</td>
                           </tr>
                         @empty
-                          <tr>
-                            No hay comentarios de {{$usuario->usuer}}
-                          </tr>
+                          <th>
+                            No hay comentarios de {{$usuario->user}}
+                          </th>
                         @endforelse
                       </tbody>
                     </table>

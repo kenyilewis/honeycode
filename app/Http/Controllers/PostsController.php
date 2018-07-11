@@ -45,4 +45,9 @@ class PostsController extends Controller
       ]);
       return redirect('/post');
     }
+    public function search()
+    {
+      $posts = Post::where('title', 'like', '%' . request('busqueda') . '%')->orwhere('body', 'like', '%' . request('busqueda') . '%')->paginate(10);
+      return view('posts.index', compact('posts'));
+    }
 }
