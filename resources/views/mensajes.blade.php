@@ -14,7 +14,13 @@
     </tr>
   </thead>
   <tbody>
-  @each('/mensajes/_card', $mensajes, 'mensaje')
+  @forelse ($mensajes as $mensaje)
+    @include('mensajes._card')
+  @empty
+    <tr>
+      <th>No Tienes Mensajes</th>
+    </tr>
+  @endforelse
 
   </tbody>
 </table>

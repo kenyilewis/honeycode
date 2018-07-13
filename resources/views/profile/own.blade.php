@@ -96,7 +96,7 @@
                       @forelse ($amigos as $amigo)
                         <tr>
                           <td><a href="/user/{{$amigo->user}}">{{$amigo->user}}</a></td>
-                          <td><a href="{{ route('remove_friend', ['id' => $amigo->id]) }}" class="btn"><i class="fas fa-trash-alt"></i></a><a href="/mensaje/nuevo/{{$amigo->user}}" class="btn"><i class="far fa-envelope"></i></a></td>
+                          <td><a href="/amigos/eliminar/{{ $amigo->getrel($amigo->id) }}" class="btn"><i class="fas fa-trash-alt"></i></a><a href="/mensaje/nuevo/{{$amigo->user}}" class="btn"><i class="far fa-envelope"></i></a></td>
                         </tr>
                         @empty
                         <th>No tienes amigos</th>

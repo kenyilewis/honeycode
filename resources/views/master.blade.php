@@ -25,7 +25,11 @@
     @else
       @include('layouts.nav')
     @endif
+    <div class="container-body">
+
+
     @yield('content')
+      </div>
     @include('layouts.footer')
 
     @yield('meta')

@@ -51,7 +51,7 @@ class UserController extends Controller
       $usuario = User::where('user', $user)->get()->first();
       $posts = Post::where('user_id', $usuario->id)->get();
       $comentarios = Comment::where('user_id', $usuario->id)->get();
-      $amigos = $usuario->getFriends();
+      $amigos = $usuario->getFriends($usuario->id);
       return view('profile', compact('usuario', 'posts', 'comentarios', 'amigos'));
     }
 

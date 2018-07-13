@@ -13,12 +13,6 @@
     <form action="/post/buscar" method="get" id="form_buscar" style="display:none">
       <div class="row" >
         <div class="col">
-          <select class="form-control" name="lista">
-            <option value="user">Usuario</option>
-            <option value="post">Post</option>
-          </select>
-        </div>
-        <div class="col">
           <input type="text" class="form-control" name="busqueda">
         </div>
         <div class="col">

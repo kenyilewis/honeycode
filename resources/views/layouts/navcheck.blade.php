@@ -19,8 +19,8 @@
           <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{auth()->user()->user}}</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="/mensajes">MENSAJES</a>
+            <a class="dropdown-item" href="/amigos">AMIGOS</a>
             <a class="dropdown-item" href="/logout">LOGOUT</a>
-            <a class="dropdown-item" href="#">ALGO MAS</a>
           </div>
         </li>
       </ul>

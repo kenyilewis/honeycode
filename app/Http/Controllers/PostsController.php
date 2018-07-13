@@ -40,7 +40,7 @@ class PostsController extends Controller
 
       Post::create([
         'title' => request('title'),
-        'body' => htmlentities(request('body')),
+        'body' => request('body'),
         'user_id' => auth()->id()
       ]);
       return redirect('/post');

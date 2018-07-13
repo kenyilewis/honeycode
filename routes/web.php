@@ -54,3 +54,7 @@ Route::get('/mensaje/eliminar/{id}', 'MensajesController@destroy');
 Route::get('/amistad', 'FriendController@index');
 Route::get('be_friend/{id}', 'FriendController@beFriend')->name('be_friend');
 Route::get('remove_friend/{id}', 'FriendController@removeFriend')->name('remove_friend');
+
+Route::get('/amigos/agregar/{id}', 'FriendsController@add');
+Route::get('/amigos/eliminar/{id}', 'FriendsController@destroy');
+Route::get('/amigos', 'FriendsController@index');

@@ -13,6 +13,9 @@ class MensajesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+
     public function index()
     {
       $mensajes = Mensajes::where('remit_id', auth()->id())->latest()->paginate(10);
@@ -28,7 +31,8 @@ class MensajesController extends Controller
     public function create($user)
     {
       $usuario = User::where('user', $user)->get()->first();
-      return view('/mensajes/nuevo', compact('usuario'));
+      $amigos = $usuario->getFriends($usuario->id);
+      return view('/mensajes/nuevo', compact('usuario', 'amigos'));
     }
 
     /**
@@ -62,7 +66,11 @@ class MensajesController extends Controller
      */
     public function show($id)
     {
+
       $mensaje = Mensajes::find($id);
+      if (auth()->user()->id !== $mensaje->remit_id) {
+        return back();
+      }
       $mensaje->read = '1';
       $mensaje->save();
       return view('mensajes.show', compact('mensaje'));

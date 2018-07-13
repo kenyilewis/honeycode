@@ -25,13 +25,6 @@
 
     <label>Cargar Imagen de Perfil</label>
     <input type="file" class="form-control" name="file">
-    <label>Conocimientos</label><br>
-    <input type="checkbox" name="vehicle" value="php"> PHP
-    <input type="checkbox" name="vehicle" value="html"> HTML<br>
-    <input type="checkbox" name="vehicle" value="css"> CSS<br>
-    <input type="checkbox" name="vehicle" value="js"> Javascript
-    <input type="checkbox" name="vehicle" value="java"> Java<br>
-    <input type="checkbox" name="vehicle" value="ruby"> Ruby<br>
     <label>Perfil Facebook</label>
     <div class="input-group">
       <div class="input-group-prepend">

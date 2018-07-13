@@ -12,18 +12,43 @@
                       <li>{{$usuario->email}}</li>
                     </ul>
                     <div >
-                        <a href="#" class="btn btn-social btn-facebook">
+                        <a href="{{$usuario->facebook}}" class="btn btn-social btn-facebook">
                             <i class="fab fa-facebook-f"></i>&nbsp; Facebook</a>
-                        <a href="#" class="btn btn-social btn-google">
-                            <i class="fab fa-google-plus-g"></i>&nbsp; Google</a>
-                        <a href="#" class="btn btn-social btn-twitter">
-                            <i class="fab fa-twitter"></i>&nbsp; Twitter </a>
+                        <a href="{{$usuario->propia}}" class="btn btn-social btn-google">
+                            <i class="fas fa-at"></i>&nbsp; Web</a>
+                        <a href="{{$usuario->linkedin}}" class="btn btn-social btn-LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>&nbsp; LinkedIn </a>
                     </div>
               </div>
               <div class="col-md-8">
                 <div class="row">
-                  <a href="/mensaje/nuevo/{{$usuario->user}}" class="btn btn-primary">Enviar mensaje</a>
-                  <a href=""{{ route('be_friend', ['id' => $usuario->id]) }}"" class="btn btn-warning">Agregar a mis amigos</a>
+
+                  @forelse ($amigos as $amigo)
+
+                    @if ($amigo->id === auth()->user()->id)
+                      <a href="/mensaje/nuevo/{{$usuario->user}}" class="btn btn-primary">Enviar mensaje</a>
+
+                    @endif
+                    @empty
+                      <a href="/mensaje/nuevo/{{$usuario->user}}" id="amigos" class="btn btn-primary">Enviar mensaje</a>
+
+
+
+                  @endforelse
+
+                  @forelse ($amigos as $amigo)
+
+                    @if ($amigo->id === auth()->user()->id)
+                        <a href="/amigos/eliminar/{{ $amigo->getrel($usuario->id) }}" class="btn btn-danger btn-amigos">Eliminar de mis Amigos</a>
+
+                    @endif
+                    @empty
+
+                        <a href="/amigos/agregar/{{$usuario->id}}" class="btn btn-success btn-amigos">Agregar a mis amigos</a>
+
+                  @endforelse
+
+
                 </div>
                 <br>
                   <div class="row form-group col-12">
@@ -88,8 +113,19 @@
 
   <!-- REQUIRED SCRIPTS FILES -->
   <!-- CORE JQUERY FILE -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.25.0/dist/sweetalert2.all.min.js" charset="utf-8"></script>
   <script src="/js/jquery-1.11.1.js"></script>
   <!-- REQUIRED BOOTSTRAP SCRIPTS -->
   <script src="/js/bootstrap.js"></script>
+  <script type="text/javascript">
+    $('#amigos').click(function(e){
+      e.preventDefault();
+      swal({
+        type: 'error',
+        title: 'Oops...',
+        text: 'Solo puedes enviar mensajes a tus amigos',
+      });
+    })
+  </script>
 
 @endsection
